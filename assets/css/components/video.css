@@ -1,0 +1,102 @@
+/* =============================================================
+   Composant : emplacement video (.video-frame)
+   Zone reservee a un lecteur ou a un visuel, a integrer plus tard.
+   Fond sombre volontaire : le contenu video se lit mieux sur
+   la couleur secondaire que sur un gris clair.
+   ============================================================= */
+
+.video-frame {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-secondary);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+/* Trame discrete pour signaler qu'il s'agit d'un emplacement */
+.video-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.video-frame__body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  text-align: center;
+}
+
+.video-frame__play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  color: var(--color-text);
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  transition:
+    background-color var(--duration-base) var(--ease),
+    transform var(--duration-base) var(--ease);
+}
+
+.video-frame__play:hover {
+  background-color: var(--color-primary-strong);
+  transform: scale(1.04);
+}
+
+.video-frame__play:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+.video-frame__play svg {
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-left: 3px; /* recentre optiquement le triangle */
+}
+
+.video-frame__label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-inverse);
+}
+
+.video-frame__hint {
+  font-size: var(--text-xs);
+  max-width: 26rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Etiquette de duree, coin inferieur droit */
+.video-frame__duration {
+  position: absolute;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-inverse);
+  background-color: rgba(17, 24, 39, 0.6);
+  border-radius: var(--radius-sm);
+}
+
+/* Icone d'emplacement, quand la zone n'accueille pas de bouton de lecture */
+.video-frame__icon {
+  position: relative;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: rgba(255, 255, 255, 0.55);
+}

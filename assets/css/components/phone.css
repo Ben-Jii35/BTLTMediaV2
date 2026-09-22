@@ -1,0 +1,66 @@
+/* =============================================================
+   Composant : cadre au format telephone (9:16)
+   Pour les formats verticaux (reels, stories, formats courts).
+   Accepte indifferemment une <video> hebergee sur le site ou
+   une iframe d'integration Instagram.
+   ============================================================= */
+
+/* Hauteur des cadres.
+   L'integration Instagram n'est pas un 9:16 : elle ajoute autour de
+   la video un en-tete de compte et une barre d'actions, dont la
+   hauteur ne varie pas avec la largeur. Un simple ratio ne suffit
+   donc pas et laisse apparaitre une barre de defilement interne.
+   La hauteur est reconstituee ainsi :
+     partie proportionnelle (la video, ratio ~1.25)
+   + partie fixe (en-tete + actions, ~235 px)
+   Un padding-bottom en pourcentage se calculant sur la largeur,
+   les deux se combinent dans un calc().
+   Ajuster ces valeurs si Instagram fait evoluer son widget. */
+.phone-grid {
+  display: grid;
+  /* L'integration Instagram demande environ 280 px de large pour
+     rester lisible : les cadres se repartissent d'eux-memes. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: var(--space-5);
+  justify-items: center;
+}
+
+.phone {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+  max-width: 420px;
+}
+
+/* Le chassis : bords tres arrondis, fine bordure sombre.
+   Volontairement discret, aucun decor superflu. */
+.phone__screen {
+  position: relative;
+  height: 0;
+  padding-bottom: calc(125% + 235px);
+  background-color: var(--color-secondary);
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Video hebergee sur le site : pas d'habillage Instagram, vrai 9:16. */
+.phone--video .phone__screen {
+  height: auto;
+  padding-bottom: 0;
+  aspect-ratio: 9 / 16;
+}
+
+/* La video, l'iframe ou l'image remplissent l'ecran */
+.phone__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+  background-color: var(--color-secondary);
+}
+

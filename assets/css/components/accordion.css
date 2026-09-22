@@ -1,0 +1,92 @@
+/* =============================================================
+   Composant : accordeon (base sur <details>/<summary>)
+   Accessible au clavier nativement (Entree / Espace).
+   Le JS se contente de fermer les autres panneaux.
+   ============================================================= */
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.accordion__item {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--duration-base) var(--ease);
+}
+
+.accordion__item[open] {
+  border-color: var(--color-border-strong);
+}
+
+.accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  width: 100%;
+  padding: var(--space-5) var(--space-6);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  cursor: pointer;
+  list-style: none;
+  transition: background-color var(--duration-base) var(--ease);
+}
+
+.accordion__trigger:hover {
+  background-color: var(--color-surface-alt);
+}
+
+.accordion__trigger:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: calc(var(--focus-ring-offset) * -1);
+}
+
+.accordion__indicator {
+  position: relative;
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-accent-text);
+}
+
+/* Icone "+" construite en CSS : la barre verticale disparait a l'ouverture */
+.accordion__indicator::before,
+.accordion__indicator::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto 0;
+  height: 2px;
+  border-radius: 2px;
+  background-color: currentColor;
+  transform: translateY(-50%);
+  transition: transform var(--duration-base) var(--ease), opacity var(--duration-base) var(--ease);
+}
+
+.accordion__indicator::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.accordion__item[open] .accordion__indicator::after {
+  transform: translateY(-50%) rotate(0deg);
+  opacity: 0;
+}
+
+.accordion__panel {
+  padding: 0 var(--space-6) var(--space-5);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.accordion__item[open] .accordion__panel {
+  animation: accordion-reveal var(--duration-base) var(--ease);
+}
+
+@keyframes accordion-reveal {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: none; }
+}

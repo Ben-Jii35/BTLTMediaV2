@@ -1,0 +1,170 @@
+/* =============================================================
+   Composant : formulaire
+   Concu pour etre lisible sur fond fonce (encart d'appel a
+   l'action) comme sur fond clair.
+   ============================================================= */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  width: 100%;
+  max-width: 38rem;
+  text-align: left;
+}
+
+.form__row {
+  display: grid;
+  gap: var(--space-5);
+}
+
+@media (min-width: 640px) {
+  .form__row--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.field__label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-inverse);
+}
+
+.field__hint {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Marque les champs facultatifs plutot que les champs requis :
+   moins d'asterisques, information plus utile. */
+.field__optional {
+  font-weight: var(--weight-regular);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.field__control {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  min-height: 2.875rem;
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--duration-base) var(--ease), box-shadow var(--duration-base) var(--ease);
+}
+
+.field__control::placeholder {
+  color: var(--color-placeholder);
+}
+
+.field__control:hover:not(:disabled) {
+  border-color: var(--color-border-strong);
+}
+
+.field__control:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-primary);
+  outline-offset: 2px;
+  border-color: var(--color-primary);
+}
+
+.field__control:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+textarea.field__control {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+/* Fleche du select, dessinee en CSS pour eviter une image */
+select.field__control {
+  appearance: none;
+  padding-right: var(--space-10);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--color-text) 50%),
+    linear-gradient(135deg, var(--color-text) 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) calc(50% + 2px),
+    calc(100% - 14px) calc(50% + 2px);
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+}
+
+/* --- Case a cocher --- */
+.checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.82);
+  cursor: pointer;
+}
+
+.checkbox__input {
+  flex: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-top: 0.2rem;
+  accent-color: var(--color-primary);
+}
+
+.checkbox__input:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* --- Actions et messages --- */
+.form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+@media (max-width: 480px) {
+  .form__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.form__status {
+  font-size: var(--text-sm);
+  color: var(--color-text-inverse);
+}
+
+.form__status:empty {
+  display: none;
+}
+
+.form__note {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* --- Variante sur fond clair --- */
+.form--light .field__label {
+  color: var(--color-text);
+}
+
+.form--light .field__hint,
+.form--light .field__optional,
+.form--light .form__note {
+  color: var(--color-text-muted);
+}
+
+.form--light .checkbox {
+  color: var(--color-text-muted);
+}
+
+.form--light .form__status {
+  color: var(--color-text);
+}

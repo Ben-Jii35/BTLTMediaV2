@@ -1,0 +1,77 @@
+/* =============================================================
+   Section : fonctionnement (3 etapes)
+   ============================================================= */
+
+.steps {
+  position: relative;
+  display: grid;
+  gap: var(--space-8);
+  counter-reset: step;
+}
+
+@media (min-width: 900px) {
+  .steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-10);
+  }
+
+  /* Ligne de liaison discrete entre les etapes */
+  .steps::before {
+    content: "";
+    position: absolute;
+    top: 1.5rem;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background-color: var(--color-border);
+  }
+}
+
+.step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.step__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px var(--color-bg);
+}
+
+.section--surface .step__number {
+  box-shadow: 0 0 0 6px var(--color-surface);
+}
+
+.step__number--current {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.step__title {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+}
+
+.step__text {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+/* Separateur horizontal en version mobile */
+@media (max-width: 899px) {
+  .step + .step {
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border);
+  }
+}

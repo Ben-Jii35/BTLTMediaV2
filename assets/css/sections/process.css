@@ -1,0 +1,81 @@
+/* =============================================================
+   Section : processus (4 etapes)
+
+   Quatre colonnes reliees par un filet qui passe derriere les
+   pastilles numerotees. Le filet est trace par les etapes
+   elles-memes, pas par un element a part : il s'adapte donc tout
+   seul si on en ajoute ou si on en retire une.
+   ============================================================= */
+
+.process {
+  display: grid;
+  gap: var(--space-8);
+}
+
+@media (min-width: 720px) {
+  .process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 960px) {
+  .process { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.process__step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: center;
+}
+
+/* --- Pastille numerotee ---
+   Texte sombre sur l'orange, comme partout ailleurs sur le site :
+   du blanc sur l'orange ne ferait que 2:1. */
+.process__number {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  color: var(--color-on-primary);
+  background-color: var(--color-primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- Filet de liaison ---
+   Chaque etape sauf la premiere tire un trait jusqu'au centre de la
+   precedente : son bord droit est cale sur son propre centre
+   (right: 50%) et sa largeur vaut une colonne plus une gouttiere,
+   soit exactement la distance entre deux centres. Le trait passe
+   sous les pastilles, qui le masquent a ses deux extremites. */
+.process__step + .process__step::before {
+  content: "";
+  position: absolute;
+  top: 1.5rem;
+  right: 50%;
+  width: calc(100% + var(--space-8));
+  border-top: 1px solid var(--color-border);
+}
+
+/* En dessous de 960 px les etapes ne sont plus sur une seule ligne :
+   un filet horizontal relierait des colonnes qui ne se suivent pas. */
+@media (max-width: 959px) {
+  .process__step + .process__step::before { content: none; }
+}
+
+.process__title {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+}
+
+.process__text {
+  max-width: 22rem;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}

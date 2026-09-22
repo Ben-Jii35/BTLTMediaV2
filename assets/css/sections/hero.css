@@ -1,0 +1,94 @@
+/* =============================================================
+   Section : hero
+   Photo de tournage en fond, voile de lecture, texte centre.
+   ============================================================= */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  padding-block: clamp(4rem, 8vw, 7rem);
+  overflow: hidden;
+  background-color: var(--color-secondary);
+}
+
+/* --- Photo de fond --- */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url("../../img/hero-tournage.jpg");
+  background-size: cover;
+  background-position: center;
+
+  /* Le fichier fourni ne fait que 474 px de large : etire sur toute
+     la largeur de l'ecran, il pixelise. Un flou leger masque le
+     defaut sans denaturer l'image.
+     A RETIRER des qu'une version d'au moins 1920 px est disponible. */
+  filter: blur(2px);
+  transform: scale(1.05); /* compense les bords adoucis par le flou */
+}
+
+/* --- Voile de lecture ---
+   Sans lui, le texte passerait tantot sur du blanc, tantot sur des
+   silhouettes noires : illisible. Le voile reprend la couleur
+   secondaire pour rester dans la charte. */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--hero-overlay);
+}
+
+.hero__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  max-width: 56rem;
+  text-align: center;
+}
+
+.hero__title {
+  margin: 0;
+  color: var(--color-text-inverse);
+}
+
+.hero__subtitle {
+  max-width: 46rem;
+  font-size: var(--text-lg);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero__actions {
+  margin-top: var(--space-1);
+  justify-content: center;
+}
+
+.hero__note {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.hero__note-icon {
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-primary);
+  flex: none;
+}
+
+/* Le focus doit rester visible sur le fond sombre */
+.hero :where(a, button):focus-visible {
+  outline-color: var(--color-primary);
+}

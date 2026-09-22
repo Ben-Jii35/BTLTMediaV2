@@ -1,0 +1,18 @@
+/* =============================================================
+   Section : FAQ
+   En-tete centre, questions en dessous. La colonne laterale collante
+   a ete abandonnee : elle laissait la moitie gauche vide une fois
+   depassee, et poussait les questions dans une colonne etroite.
+   ============================================================= */
+
+/* Les questions restent dans une colonne de lecture confortable :
+   des lignes de 1100 px seraient penibles a parcourir. */
+.accordion {
+  max-width: 48rem;
+  margin-inline: auto;
+}
+
+.faq__footer {
+  margin-top: var(--space-8);
+  text-align: center;
+}

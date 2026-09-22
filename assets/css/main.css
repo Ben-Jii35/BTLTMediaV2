@@ -1,0 +1,35 @@
+/* =============================================================
+   Point d'entree des styles
+   Ordre : tokens -> reset -> base -> layout -> composants -> sections
+   (Pour la production, ces fichiers peuvent etre concatenes
+   ou compiles pour eviter les requetes @import.)
+   ============================================================= */
+
+/* Base */
+@import url("base/tokens.css");
+@import url("base/reset.css");
+@import url("base/base.css");
+@import url("base/layout.css");
+
+/* Composants reutilisables */
+@import url("components/button.css");
+@import url("components/badge.css");
+@import url("components/card.css");
+@import url("components/media.css");
+@import url("components/accordion.css");
+@import url("components/form.css");
+@import url("components/video.css");
+
+/* Sections de la page */
+@import url("sections/header.css");
+@import url("sections/hero.css");
+@import url("sections/trust.css");
+@import url("sections/content.css");
+@import url("sections/process.css");
+@import url("sections/cta.css");
+@import url("sections/faq.css");
+@import url("sections/footer.css");
+@import url("sections/legal.css");
+
+/* Direction artistique V2 — palette et contenu conservés. */
+@import url("v2.css");

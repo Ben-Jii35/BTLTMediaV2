@@ -1,0 +1,114 @@
+/* =============================================================
+   Design tokens
+   Point d'entrée unique pour la personnalisation de la charte.
+   Modifier les valeurs ici se répercute sur toute la page.
+   ============================================================= */
+
+:root {
+  /* --- Couleurs de marque --------------------------------- */
+  /* L'orange du logo, releve directement dans le fichier : c'est la
+     couleur de reference de toute la page. */
+  --color-primary: #F2AC3C;          /* Accent principal : CTA, puces, soulignements */
+  --color-primary-strong: #D5972F;   /* Etat hover du primaire (derive) */
+  --color-primary-soft: #FFF4E0;     /* Fond tres clair derive du primaire */
+
+  /* Texte et icones POSES SUR l'orange. Toujours sombres : du blanc
+     sur l'orange ne ferait que 2:1. */
+  --color-on-primary: #111827;
+
+  /* Le bleu du logo. Deux tokens pour deux roles : en fond de bloc et
+     en couleur de texte. Les separer permet de faire evoluer l'un
+     sans casser l'autre. */
+  --color-secondary: #0F3D5E;        /* Fond de bloc : hero, encart contact, pied de page */
+  --color-secondary-strong: #0B2F49; /* Etat hover du secondaire (derive) */
+  --color-accent-text: #0F3D5E;      /* En texte : liens, sur-titres, petites icones */
+  --color-accent-text-strong: #0B2F49;
+
+  /* --- Neutres -------------------------------------------- */
+  --color-text: #111827;             /* Texte principal */
+  --color-text-muted: #4B5563;       /* Texte secondaire (contraste AA sur fonds clairs) */
+  --color-text-inverse: #FFFFFF;     /* Texte sur les blocs bleus */
+
+  --color-bg: #F9FAFB;               /* Fond general de la page */
+  --color-surface: #FFFFFF;          /* Cartes, header, panneaux */
+  --color-surface-alt: #F3F4F6;      /* Zones neutres, survols */
+  --color-border: #E5E7EB;           /* Bordures et separateurs discrets */
+  --color-border-strong: #D8DCE3;    /* Bordure au survol d'une carte */
+  --color-placeholder: #9AA1AC;      /* Texte d'exemple dans les champs */
+
+  --color-header-bg: rgba(255, 255, 255, 0.92); /* Header colle en haut (flou) */
+  --hero-overlay: rgba(15, 61, 94, 0.88);       /* Voile de lecture du hero */
+
+  /* --- Typographie ---------------------------------------- */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --text-xs: 0.8125rem;   /* 13px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: clamp(1.125rem, 0.5vw + 1rem, 1.25rem);
+  --text-2xl: clamp(1.375rem, 1vw + 1.1rem, 1.625rem);
+  --text-3xl: clamp(1.75rem, 1.6vw + 1.25rem, 2.25rem);
+  --text-4xl: clamp(2.125rem, 2.6vw + 1.4rem, 3.25rem);
+
+  --leading-tight: 1.15;
+  --leading-snug: 1.3;
+  --leading-normal: 1.6;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --tracking-tight: -0.02em;
+  --tracking-wide: 0.06em;
+
+  /* --- Espacements (echelle 4px) --------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Rythme vertical des sections (fluide) */
+  --section-padding-y: clamp(3.5rem, 6vw, 6rem);
+
+  /* --- Layout --------------------------------------------- */
+  --container-max: 1152px;
+  --container-narrow: 768px;
+  --container-padding: clamp(1rem, 4vw, 2rem);
+  --header-height: 4.75rem;
+
+  /* --- Rayons --------------------------------------------- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+
+  /* --- Ombres (volontairement tres discretes) -------------- */
+  --shadow-xs: 0 1px 2px rgba(17, 24, 39, 0.04);
+  --shadow-sm: 0 1px 3px rgba(17, 24, 39, 0.06), 0 1px 2px rgba(17, 24, 39, 0.04);
+  --shadow-md: 0 4px 12px rgba(17, 24, 39, 0.06);
+
+  /* --- Transitions ---------------------------------------- */
+  --duration-fast: 120ms;
+  --duration-base: 180ms;
+  --ease: cubic-bezier(0.2, 0, 0.2, 1);
+
+  /* --- Focus ---------------------------------------------- */
+  --focus-ring-width: 3px;
+  --focus-ring-color: var(--color-secondary);
+  --focus-ring-offset: 2px;
+
+  /* --- Divers --------------------------------------------- */
+  --z-header: 50;
+  --z-overlay: 60;
+}

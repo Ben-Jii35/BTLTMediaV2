@@ -1,0 +1,84 @@
+/* =============================================================
+   Section : realisations
+   Colonne de gauche : presentation et lien vers le compte.
+   Colonne de droite : cadres au format telephone (voir
+   assets/css/components/phone.css).
+   ============================================================= */
+
+.showcase__layout {
+  display: grid;
+  gap: var(--space-10);
+  align-items: start;
+}
+
+@media (min-width: 960px) {
+  .showcase__layout {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: var(--space-16);
+  }
+
+  .showcase__aside {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-8));
+  }
+}
+
+.showcase__aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+}
+
+/* --- Compte affiche --- */
+.account {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  transition: border-color var(--duration-base) var(--ease), box-shadow var(--duration-base) var(--ease);
+}
+
+.account:hover {
+  border-color: #D8DCE3;
+  box-shadow: var(--shadow-sm);
+}
+
+.account__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--color-text-inverse);
+  background-color: var(--color-secondary);
+  border-radius: var(--radius-md);
+  flex: none;
+}
+
+.account__icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.account__handle {
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-sm);
+}
+
+.account__meta {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-regular);
+  color: var(--color-text-muted);
+}
+
+.feed__caption {
+  margin-top: var(--space-6);
+  font-size: var(--text-xs);
+  text-align: center;
+  color: var(--color-text-muted);
+}

@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BTLTMedia — Agence de communication (maquette, contenu d'exemple)</title>
+  <meta name="description" content="BTLTMedia, agence de communication et de marketing. Maquette : contenu d'exemple à remplacer.">
+  <meta name="theme-color" content="#F2AC3C">
+  <link rel="icon" href="assets/img/favicon.ico" sizes="32x32">
+  <link rel="icon" href="assets/img/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script>
+    /* Évite un saut visuel : marque le support du JS avant le premier rendu.
+       Filet de sécurité : si le script principal n'a pas démarré au bout de
+       deux secondes, on retire la classe pour que le contenu masqué en
+       attente d'animation redevienne visible. */
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js');
+    setTimeout(function () {
+      if (!document.documentElement.dataset.revealReady) {
+        document.documentElement.classList.remove('js');
+      }
+    }, 2000);
+  </script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body class="page">
+
+  <!-- =========================================================
+       ATTENTION — MAQUETTE, CONTENU D'EXEMPLE NON DÉFINITIF
+       Le nom (BTLTMedia) et le compte Instagram (@btlt.media) sont
+       réels. En revanche, TOUS LES TEXTES restent des exemples
+       destinés à dimensionner la mise en page : titres, prestations,
+       étapes et réponses de la FAQ sont à réécrire.
+       Aucun chiffre d'activité ni témoignage n'a été inventé.
+
+       À BRANCHER AVANT MISE EN LIGNE :
+       - l'envoi du formulaire de contact (assets/js/main.js)
+       - les logos clients (section de confiance)
+       ========================================================= -->
+
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+
+  <!-- =========================================================
+       Sprite d'icônes temporaires
+       ========================================================= -->
+  <svg class="visually-hidden" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="icon-film" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="4" width="18" height="16" rx="3"></rect>
+      <path d="M3 9h18M3 15h18M8 4v16M16 4v16"></path>
+    </symbol>
+    <symbol id="icon-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 16.5l5.5-5.5 3.5 3.5L20.5 6"></path>
+      <path d="M15.5 6h5v5"></path>
+    </symbol>
+    <symbol id="icon-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2.5" y="6" width="12" height="12" rx="2.5"></rect>
+      <path d="M14.5 10.2l6-3v9.6l-6-3z"></path>
+    </symbol>
+    <symbol id="icon-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 3l1.7 4.3L16 9l-4.3 1.7L10 15l-1.7-4.3L4 9l4.3-1.7z"></path>
+      <path d="M17.5 14l.9 2.3 2.3.9-2.3.9-.9 2.3-.9-2.3-2.3-.9 2.3-.9z"></path>
+    </symbol>
+    <symbol id="icon-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 3L2.5 10.2l7.4 2.9z"></path>
+      <path d="M21 3l-7.3 18-3.8-7.9z"></path>
+      <path d="M21 3L9.9 13.1"></path>
+    </symbol>
+    <symbol id="icon-megaphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3.5 10.5v3a1 1 0 001 1h2l7 4.5V5l-7 4.5h-2a1 1 0 00-1 1z"></path>
+      <path d="M17.5 8.5a5 5 0 010 7"></path>
+    </symbol>
+    <symbol id="icon-palette" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3.5a8.5 8.5 0 000 17c1 0 1.8-.8 1.8-1.8 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-1 .8-1.8 1.8-1.8h2a4.4 4.4 0 004.4-4.4c0-3.7-4-6.6-9-6.6z"></path>
+      <circle cx="8" cy="10" r="1"></circle>
+      <circle cx="12" cy="7.5" r="1"></circle>
+      <circle cx="16" cy="10" r="1"></circle>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 6L9 17l-5-5"></path>
+    </symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="M13 6l6 6-6 6"></path>
+    </symbol>
+    <!-- Icône générique de réseau social : à remplacer par le glyphe officiel -->
+    <symbol id="icon-star" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2.6l2.82 5.72 6.31.92-4.57 4.45 1.08 6.29L12 17.02l-5.64 2.96 1.08-6.29L2.87 9.24l6.31-.92L12 2.6z"></path>
+    </symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+      <circle cx="12" cy="12" r="4"></circle>
+      <circle cx="17.2" cy="6.8" r="1"></circle>
+    </symbol>
+  </svg>
+
+  <!-- =========================================================
+       1. HEADER
+       ========================================================= -->
+  <header class="header">
+    <div class="container header__inner">
+
+      <a class="brand" href="#" aria-label="BTLTMedia, retour en haut de page">
+        <img class="brand__logo" src="assets/img/logo-btlt-carre.png" alt="" width="1024" height="1024">
+        <span class="brand__name">Media</span>
+      </a>
+
+      <!-- La navigation ne contient que des ancres de cette page, dans
+           l'ordre où les sections apparaissent. Les liens sortants
+           (Instagram) vivent dans le hero et le pied de page : un lien
+           externe au milieu d'ancres ferait quitter la page trop tôt. -->
+      <nav class="nav" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#approche">Approche</a></li>
+          <li><a class="nav__link" href="#prestations">Services</a></li>
+          <li><a class="nav__link" href="#faq">Questions</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--primary" href="#cta">Nous contacter</a>
+      </div>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        data-nav-toggle
+        aria-expanded="false"
+        aria-controls="menu-mobile"
+      >
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Ouvrir ou fermer le menu</span>
+      </button>
+
+    </div>
+
+    <div class="mobile-menu" id="menu-mobile" data-nav-menu hidden>
+      <div class="container mobile-menu__inner">
+        <nav aria-label="Navigation mobile">
+          <ul class="mobile-menu__list">
+            <li><a class="mobile-menu__link" href="#approche">Approche</a></li>
+            <li><a class="mobile-menu__link" href="#prestations">Services</a></li>
+            <li><a class="mobile-menu__link" href="#faq">Questions</a></li>
+          </ul>
+        </nav>
+        <div class="mobile-menu__actions">
+          <a class="btn btn--primary btn--block" href="#cta">Nous contacter</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page__main" id="contenu">
+
+    <!-- =========================================================
+         2. HERO
+         ========================================================= -->
+    <section class="hero" aria-labelledby="hero-titre">
+      <div class="container hero__inner">
+
+        <div class="hero__content" data-reveal>
+          <h1 class="hero__title" id="hero-titre">Votre machine à <span class="hero__highlight">communication</span> client</h1>
+
+          <p class="hero__subtitle">
+            BTLTMedia est une agence de communication et de marketing :
+            stratégie, production vidéo, diffusion sur les réseaux et campagnes
+            Meta Ads. Un système d'acquisition complet, de l'image de marque
+            à la conversion.
+          </p>
+
+          <div class="btn-group hero__actions">
+            <a class="btn btn--primary btn--lg" href="#cta">
+              Nous contacter
+            </a>
+            <a class="btn btn--outline btn--lg" href="https://www.instagram.com/btlt.media/" target="_blank" rel="noopener">Voir nos réalisations<span class="visually-hidden"> (nouvelle fenêtre)</span></a>
+          </div>
+        </div>
+
+        <!-- Composition décorative : la photographie d'origine est conservée. -->
+        <div class="hero-art" aria-hidden="true">
+          <div class="hero-art__orbit"></div>
+          <div class="hero-art__sun"></div>
+          <div class="hero-art__frame">
+            <div class="hero-art__perforations"></div>
+            <img src="assets/img/hero-tournage.jpg" alt="" width="474" height="266" fetchpriority="high">
+            <div class="hero-art__perforations"></div>
+          </div>
+          <div class="hero-art__viewfinder"><i></i><i></i><i></i><i></i></div>
+          <div class="hero-art__asterisk">✳</div>
+          <div class="hero-art__timeline"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         3. PREUVE / CONFIANCE
+
+         ⚠ LOGOS FICTIFS. Les six sociétés ci-dessous n'existent pas :
+         ce sont des dessins faits pour la maquette, à remplacer par de
+         vrais logos clients (et à retirer si vous n'en avez pas encore).
+
+         Le bandeau défile en continu tant que les logos ne tiennent pas
+         sur une seule ligne, c'est-à-dire en dessous de 900 px : empilés
+         sur trois rangées, ils prendraient tout l'écran d'un téléphone.
+         Au-dessus, la rangée est fixe (voir sections/trust.css).
+
+         La copie nécessaire à la boucle est faite par le JavaScript :
+         il n'y a donc qu'une seule liste à tenir à jour ici. Pour
+         ajouter un logo, dupliquer un <li> ; pour en retirer un, le
+         supprimer.
+         ========================================================= -->
+    <section class="section section--surface" aria-labelledby="preuve-titre">
+      <div class="container">
+        <h2 class="trust__intro" id="preuve-titre">Ils nous ont confié leur communication</h2>
+
+        <div class="trust__band" data-marquee data-reveal>
+          <ul class="trust__logos" data-marquee-track>
+            <li class="trust__logo">
+              <img src="assets/img/logo-exemple-atelier-nord.png" alt="Atelier Nord (logo fictif)" width="416" height="112">
+            </li>
+            <li class="trust__logo">
+              <img src="assets/img/logo-exemple-studio-kairn.png" alt="Studio Kairn (logo fictif)" width="300" height="112">
+            </li>
+            <li class="trust__logo">
+              <img src="assets/img/logo-exemple-maison-verelle.png" alt="Maison Verelle (logo fictif)" width="505" height="112">
+            </li>
+            <li class="trust__logo">
+              <img src="assets/img/logo-exemple-groupe-alveo.png" alt="Groupe Alvéo (logo fictif)" width="348" height="112">
+            </li>
+            <li class="trust__logo">
+              <img src="assets/img/logo-exemple-cafe-numa.png" alt="Café Numa (logo fictif)" width="368" height="112">
+            </li>
+            <li class="trust__logo">
+              <img src="assets/img/logo-exemple-domaine-lessart.png" alt="Domaine Lessart (logo fictif)" width="450" height="112">
+            </li>
+          </ul>
+        </div>
+
+        <!-- ⚠ AVIS FICTIFS — À REMPLACER OU À SUPPRIMER.
+             Ces trois témoignages sont inventés, comme les logos
+             ci-dessus : ils servent uniquement à voir la mise en page.
+
+             PUBLIER DE FAUX AVIS EST UN DÉLIT (pratique commerciale
+             trompeuse, art. L121-2 et L132-2 du code de la
+             consommation). Avant toute mise en ligne : soit vous les
+             remplacez par de vrais retours, obtenus avec l'accord écrit
+             de leurs auteurs, soit vous supprimez tout le bloc <ul>.
+
+             Pour en ajouter ou en retirer un : dupliquer ou supprimer
+             un <li>. La grille se réorganise d'elle-même.
+             Pour changer la note : mettre autant de <svg> sans la
+             classe --vide que d'étoiles pleines, compléter jusqu'à cinq
+             avec la classe --vide, et corriger l'aria-label. -->
+        <ul class="reviews" data-reveal>
+          <li>
+            <figure class="review">
+              <p class="rating" role="img" aria-label="5 étoiles sur 5">
+              <svg class="rating__star" aria-hidden="true" focusable="false"><use href="#icon-star"></use></svg>
+              <svg class="rating__star" aria-hidden="true" focusable="false"><use href="#icon-star"></use></svg>
+              <svg class="rating__star" aria-hidden="true" focusable="false"><use href="#icon-star"></use></svg>
+              <svg class="rating__star" aria-hidden="true" focusable="false"><use href="#icon-star"></use></svg>
+              <svg class="rating__star" aria-hidden="true" focusable="false"><use href="#icon-star"></use></svg>
+              </p>
+              <blockquote class="review__quote">
+                <p>L'agence a compris ce qu'on voulait dire avant même qu'on sache le formuler. Le film tourne depuis six mois sur notre site et en salon.</p>
+              </blockquote>
+              <figcaption class="review__author">
+                <span class="review__name">Camille R.</span>
+                <span class="review__company">Atelier Nord</span>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="review">
+              <p class="rating" role="img" aria-label="5 étoiles sur 5">
+              <svg class="rating__star" aria-hidden="true" focusable="false"><use href="#icon-star"></use></svg>
+              <svg class="rating__star" aria-hidden="true" focusable="false"><use href="#icon-star"></use></svg>
+              <svg class="rating__star" aria-hidden="true" focusable="false"><use href="#icon-star"></use></svg>
+              <svg class="rating__star" aria-hidden="true" focusable="false"><use href="#icon-star"></use></svg>
+              <svg class="rating__star" aria-hidden="true" focusable="false"><use href="#icon-star"></use></svg>
+              </p>
+              <blockquote class="review__quote">
+                <p>Tournage en une demi-journée, sans perturber l'atelier, et les formats verticaux livrés en même temps que le 16:9. C'est rare.</p>
+              </blockquote>
+              <figcaption class="review__author">
+                <span class="review__name">Slimane B.</span>
+                <span class="review__company">Groupe Alvéo</span>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="review">
+              <p class="rating" role="img" aria-label="4 étoiles sur 5">
+              <svg class="rating__star" aria-hidden="true" focusable="false"><use href="#icon-star"></use></svg>
+              <svg class="rating__star" aria-hidden="true" focusable="false"><use href="#icon-star"></use></svg>
+              <svg class="rating__star" aria-hidden="true" focusable="false"><use href="#icon-star"></use></svg>
+              <svg class="rating__star" aria-hidden="true" focusable="false"><use href="#icon-star"></use></svg>
+              <svg class="rating__star rating__star--vide" aria-hidden="true" focusable="false"><use href="#icon-star"></use></svg>
+              </p>
+              <blockquote class="review__quote">
+                <p>Deux allers-retours annoncés, deux allers-retours tenus. Le calendrier était clair dès le devis, on a pu caler la sortie sans stress.</p>
+              </blockquote>
+              <figcaption class="review__author">
+                <span class="review__name">Élodie M.</span>
+                <span class="review__company">Domaine Lessart</span>
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         4. APPROCHE (collaboration avec l’agence)
+         ========================================================= -->
+    <section class="section" id="approche" aria-labelledby="approche-titre">
+      <div class="container">
+        <div class="split" data-reveal>
+          <div class="split__content">
+            <span class="section__eyebrow">Notre approche</span>
+            <h2 class="split__title" id="approche-titre">Une agence qui travaille avec vous</h2>
+            <p class="split__text">
+              Vous connaissez votre activité, vos clients et ce qui vous distingue.
+              Nous apportons un regard extérieur pour vous aider à faire les bons
+              choix de communication, sans perdre ce qui fait votre identité.
+            </p>
+            <ul class="approach-principles">
+              <li>
+                <strong>Des choix expliqués</strong>
+                <p>Vous comprenez nos recommandations et ce qu'elles apportent à votre entreprise.</p>
+              </li>
+              <li>
+                <strong>Votre regard compte</strong>
+                <p>Nous construisons les messages avec vous. Vous validez les contenus avant leur diffusion.</p>
+              </li>
+              <li>
+                <strong>Une collaboration adaptée</strong>
+                <p>Nous tenons compte de votre budget, de vos disponibilités et de vos ressources internes.</p>
+              </li>
+            </ul>
+          </div>
+          <div class="video-frame">
+            <div class="video-frame__body">
+              <svg class="video-frame__icon" aria-hidden="true" focusable="false"><use href="#icon-film"></use></svg>
+              <span class="video-frame__label">Vidéo de présentation à venir</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         5. PRESTATIONS
+         ========================================================= -->
+    <section class="section section--surface" id="prestations" aria-labelledby="prestations-titre">
+      <div class="container">
+
+        <div class="section__header section__header--center" data-reveal>
+          <span class="section__eyebrow">Services</span>
+          <h2 class="section__title" id="prestations-titre">Un système d'acquisition complet</h2>
+          <p class="section__subtitle">
+            De la stratégie à la publicité : image de marque, forte visibilité
+            et conversion. Une seule agence, une seule vision.
+          </p>
+        </div>
+
+        <ul class="grid grid--3" data-reveal>
+          <li>
+            <article class="card" id="prestation-strategie">
+              <span class="service-number" aria-hidden="true">01</span>
+              <h3 class="card__title">Stratégie &amp; Recherche</h3>
+              <p class="card__text">
+                Analyse de votre marché, de votre cible et des tendances pour bâtir
+                un plan de communication qui sert vos objectifs business.
+              </p>
+            </article>
+          </li>
+          <li>
+            <article class="card" id="prestation-production-video">
+              <span class="service-number" aria-hidden="true">02</span>
+              <h3 class="card__title">Production vidéo</h3>
+              <p class="card__text">
+                Tournage de vos contenus : reels, formats courts, interviews, films
+                de marque. Tout est pensé pour capter l'attention.
+              </p>
+            </article>
+          </li>
+          <li>
+            <article class="card" id="prestation-montage">
+              <span class="service-number" aria-hidden="true">03</span>
+              <h3 class="card__title">Montage &amp; post-production</h3>
+              <p class="card__text">
+                Des montages dynamiques, sous-titrés et calibrés pour chaque
+                plateforme, du hook à l'appel à l'action.
+              </p>
+            </article>
+          </li>
+          <li>
+            <article class="card" id="prestation-diffusion">
+              <span class="service-number" aria-hidden="true">04</span>
+              <h3 class="card__title">Diffusion réseaux sociaux</h3>
+              <p class="card__text">
+                Publication, calendrier éditorial et optimisation sur Instagram,
+                TikTok, LinkedIn et YouTube. Vous n'avez rien à gérer.
+              </p>
+            </article>
+          </li>
+          <li>
+            <article class="card" id="prestation-meta-ads">
+              <span class="service-number" aria-hidden="true">05</span>
+              <h3 class="card__title">Campagnes Meta Ads</h3>
+              <p class="card__text">
+                Mise en place et pilotage de vos publicités Facebook &amp;
+                Instagram : ciblage, créas, tests et optimisation du coût par lead.
+              </p>
+            </article>
+          </li>
+          <li>
+            <article class="card" id="prestation-image-de-marque">
+              <span class="service-number" aria-hidden="true">06</span>
+              <h3 class="card__title">Image de marque</h3>
+              <p class="card__text">
+                Une identité visuelle et un discours cohérents sur tous vos
+                supports, pour être reconnaissable en un coup d'œil.
+              </p>
+            </article>
+          </li>
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         6. PROCESSUS (4 étapes)
+
+         Volontairement absente de la navigation : c'est une section
+         de réassurance, pas une destination. On la lit en passant,
+         entre l'offre et les objections.
+         ========================================================= -->
+    <section class="section" id="processus" aria-labelledby="processus-titre">
+      <div class="container">
+
+        <div class="section__header" data-reveal>
+          <!-- Le titre porte la classe du sur-titre : meme taille, meme
+               bleu, meme graisse que « Questions fréquentes ». Il reste
+               un <h2> pour que la section garde un nom dans le plan du
+               document. -->
+          <h2 class="section__eyebrow" id="processus-titre">Processus</h2>
+          <p class="section__subtitle">
+            Quatre étapes, de l'analyse de votre marché aux premiers leads
+            mesurables.
+          </p>
+        </div>
+
+        <ol class="process" data-reveal>
+          <li class="process__step">
+            <span class="process__number" aria-hidden="true">01</span>
+            <h3 class="process__title">Audit &amp; Stratégie</h3>
+            <p class="process__text">
+              Nous analysons votre communication actuelle, votre marché et vos
+              objectifs pour définir le bon système d'acquisition.
+            </p>
+          </li>
+          <li class="process__step">
+            <span class="process__number" aria-hidden="true">02</span>
+            <h3 class="process__title">Production</h3>
+            <p class="process__text">
+              Tournage et montage de vos contenus : formats courts, films de
+              marque, créas publicitaires.
+            </p>
+          </li>
+          <li class="process__step">
+            <span class="process__number" aria-hidden="true">03</span>
+            <h3 class="process__title">Diffusion</h3>
+            <p class="process__text">
+              Publication et animation de vos réseaux sociaux avec un calendrier
+              pensé pour la visibilité.
+            </p>
+          </li>
+          <li class="process__step">
+            <span class="process__number" aria-hidden="true">04</span>
+            <h3 class="process__title">Publicité &amp; Optimisation</h3>
+            <p class="process__text">
+              Campagnes Meta Ads pilotées, tests de créas et reporting sur les
+              leads générés.
+            </p>
+          </li>
+        </ol>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         7. FAQ
+         ========================================================= -->
+    <section class="section section--surface" id="faq" aria-labelledby="faq-titre">
+      <div class="container">
+
+        <div class="section__header section__header--center" data-reveal>
+          <span class="section__eyebrow">Questions fréquentes</span>
+          <h2 class="section__title" id="faq-titre">Vous vous demandez peut-être…</h2>
+          <p class="section__subtitle">
+            Une question qui ne figure pas ici ? Écrivez-nous.
+          </p>
+        </div>
+
+        <div class="accordion" data-accordion data-reveal>
+
+          <details class="accordion__item" open>
+            <summary class="accordion__trigger">
+              Quels sont les délais de livraison ?
+              <span class="accordion__indicator" aria-hidden="true"></span>
+            </summary>
+            <div class="accordion__panel">
+              <p>
+                À compléter selon votre organisation réelle. Indiquez un délai
+                type entre le tournage et la première version, puis le délai
+                après validation des corrections.
+              </p>
+            </div>
+          </details>
+
+          <details class="accordion__item">
+            <summary class="accordion__trigger">
+              Comment se déroule la mise en place ?
+              <span class="accordion__indicator" aria-hidden="true"></span>
+            </summary>
+            <div class="accordion__panel">
+              <p>
+                Tout part d'un premier échange sur votre besoin. Nous revenons
+                ensuite vers vous avec une proposition détaillant le temps de
+                préparation, les journées de tournage, le montage et les
+                formats livrés.
+              </p>
+            </div>
+          </details>
+
+          <details class="accordion__item">
+            <summary class="accordion__trigger">
+              Qui possède les droits sur les vidéos ?
+              <span class="accordion__indicator" aria-hidden="true"></span>
+            </summary>
+            <div class="accordion__panel">
+              <p>
+                À compléter avec vos conditions réelles : durée et territoire de
+                la cession, supports de diffusion autorisés, et traitement des
+                musiques sous licence.
+              </p>
+            </div>
+          </details>
+
+          <details class="accordion__item">
+            <summary class="accordion__trigger">
+              Vous déplacez-vous en dehors de votre région ?
+              <span class="accordion__indicator" aria-hidden="true"></span>
+            </summary>
+            <div class="accordion__panel">
+              <p>
+                À compléter : zone d'intervention habituelle, conditions de
+                déplacement au-delà, et modalités de prise en charge des frais.
+              </p>
+            </div>
+          </details>
+
+          <details class="accordion__item">
+            <summary class="accordion__trigger">
+              Les sous-titres et les formats verticaux sont-ils inclus ?
+              <span class="accordion__indicator" aria-hidden="true"></span>
+            </summary>
+            <div class="accordion__panel">
+              <p>
+                Les sous-titres sont inclus sur les formats parlés. Les
+                déclinaisons verticales peuvent être ajoutées à tout projet :
+                elles sont précisées dès la proposition initiale.
+              </p>
+            </div>
+          </details>
+
+          <details class="accordion__item">
+            <summary class="accordion__trigger">
+              Faut-il prévoir quelque chose avant le tournage ?
+              <span class="accordion__indicator" aria-hidden="true"></span>
+            </summary>
+            <div class="accordion__panel">
+              <p>
+                Un lieu accessible, les autorisations éventuelles et la
+                disponibilité des personnes filmées. Le reste du matériel est
+                fourni et installé sur place.
+              </p>
+            </div>
+          </details>
+
+        </div>
+
+        <p class="faq__footer" data-reveal>
+          <a class="btn btn--outline" href="#cta">Poser une question</a>
+        </p>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         8. APPEL À L'ACTION + FORMULAIRE
+
+         Le bouton ouvre le formulaire dans l'encart et lui laisse
+         la place. Sans JavaScript, le formulaire est affiché en
+         permanence et le bouton est masqué (voir sections/cta.css).
+
+         L'ENVOI N'EST PAS BRANCHÉ : voir assets/js/main.js
+         ========================================================= -->
+    <section class="section" id="cta" aria-labelledby="cta-titre">
+      <div class="container">
+        <div class="cta__panel" data-reveal>
+
+          <h2 class="cta__title" id="cta-titre">Parlons de votre projet</h2>
+          <p class="cta__text">
+            Parlez-nous de votre activité et de vos besoins. Nous échangerons
+            avec vous pour définir un accompagnement adapté.
+          </p>
+
+          <div class="cta__intro" data-contact-intro>
+            <div class="btn-group cta__actions">
+              <button
+                class="btn btn--primary btn--lg"
+                type="button"
+                data-contact-open
+                aria-expanded="false"
+                aria-controls="formulaire-contact"
+              >
+                Nous contacter
+              </button>
+            </div>
+          </div>
+
+          <div class="cta__form-wrapper" id="formulaire-contact" data-contact-panel>
+            <form class="form" data-contact-form>
+
+              <div class="form__row form__row--2">
+                <div class="field">
+                  <label class="field__label" for="contact-nom">Nom ou nom de société</label>
+                  <input class="field__control" type="text" id="contact-nom" name="nom" autocomplete="organization" required>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="contact-email">Adresse électronique</label>
+                  <input class="field__control" type="email" id="contact-email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+
+              <div class="form__row form__row--2">
+                <div class="field">
+                  <label class="field__label" for="contact-telephone">
+                    Téléphone <span class="field__optional">(facultatif)</span>
+                  </label>
+                  <input
+                    class="field__control"
+                    type="tel"
+                    id="contact-telephone"
+                    name="telephone"
+                    autocomplete="tel"
+                    inputmode="tel"
+                    placeholder="06 00 00 00 00"
+                  >
+                </div>
+                <div class="field">
+                  <label class="field__label" for="contact-instagram">
+                    Lien Instagram ou pseudo <span class="field__optional">(facultatif)</span>
+                  </label>
+                  <input
+                    class="field__control"
+                    type="text"
+                    id="contact-instagram"
+                    name="instagram"
+                    aria-describedby="contact-instagram-aide"
+                    autocapitalize="off"
+                    autocorrect="off"
+                    spellcheck="false"
+                    placeholder="@votrecompte"
+                  >
+                  <p class="field__hint" id="contact-instagram-aide">
+                    Le compte à mettre en avant, si vous en avez un.
+                  </p>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="contact-objet">Objet</label>
+                <input
+                  class="field__control"
+                  type="text"
+                  id="contact-objet"
+                  name="objet"
+                  placeholder="Film de marque pour la rentrée, captation d'un salon…"
+                  required
+                >
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="contact-message">Votre projet</label>
+                <textarea
+                  class="field__control"
+                  id="contact-message"
+                  name="message"
+                  rows="5"
+                  placeholder="Quelques lignes suffisent : contexte, délai souhaité, lieu du tournage…"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="field">
+                <label class="checkbox" for="contact-consentement">
+                  <input class="checkbox__input" type="checkbox" id="contact-consentement" name="consentement" required>
+                  <span>
+                    J'accepte que mes informations soient utilisées pour répondre
+                    à ma demande. <!-- Mention à adapter à votre politique de confidentialité. -->
+                  </span>
+                </label>
+              </div>
+
+              <div class="form__actions">
+                <button class="btn btn--primary btn--lg" type="submit">Envoyer ma demande</button>
+                <button class="btn btn--quiet" type="button" data-contact-cancel>Annuler</button>
+              </div>
+
+              <p class="form__status" data-contact-status role="status"></p>
+              <p class="form__note">
+                Vos informations ne servent qu'à répondre à votre demande et ne
+                sont transmises à personne.
+              </p>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       9. FOOTER
+       ========================================================= -->
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer__top">
+
+        <a class="brand brand--footer" href="#" aria-label="BTLTMedia, retour en haut de page">
+          <img class="brand__logo brand__logo--wide" src="assets/img/logo-btlt-blanc.png" alt="" width="906" height="507">
+          <span class="visually-hidden">BTLTMedia</span>
+        </a>
+
+        <p class="footer__tagline">
+          Agence de communication et de marketing. <br>
+          Secteur principal : Rennes et ses alentours,
+          déplacements dans toute la France.
+        </p>
+
+        <!-- Un seul compte réel pour l'instant. Pour en ajouter un,
+             dupliquer le <li> ci-dessous, ajouter le <symbol> de l'icône
+             au sprite en haut de page, puis changer l'URL, l'aria-label
+             et la cible de <use href>. -->
+        <ul class="footer__social">
+          <li>
+            <a class="social-link" href="https://www.instagram.com/btlt.media/" target="_blank" rel="noopener" aria-label="Instagram (nouvelle fenêtre)">
+              <svg aria-hidden="true" focusable="false"><use href="#icon-instagram"></use></svg>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; <span>2026</span> BTLTMedia. Tous droits réservés.</p>
+        <ul class="footer__legal">
+          <li><a class="footer__link" href="mentions-legales.html">Mentions légales</a></li>
+          <li><a class="footer__link" href="politique-de-confidentialite.html">Politique de confidentialité</a></li>
+          <li><a class="footer__link" href="conditions-generales-de-vente.html">Conditions générales de vente</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

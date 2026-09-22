@@ -1,0 +1,110 @@
+/* =============================================================
+   Layout general : conteneurs, sections, grilles
+   ============================================================= */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page__main {
+  flex: 1 0 auto;
+}
+
+/* --- Conteneur : largeur max coherente sur toute la page --- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+/* --- Section --- */
+.section {
+  padding-block: var(--section-padding-y);
+}
+
+.section--tight {
+  padding-block: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.section--surface {
+  background-color: var(--color-surface);
+  border-block: 1px solid var(--color-border);
+}
+
+/* --- En-tete de section --- */
+.section__header {
+  max-width: 44rem;
+  margin-bottom: var(--space-12);
+}
+
+.section__header--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section__eyebrow {
+  display: block;
+  margin-bottom: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  /* Couleur de TEXTE, pas de fond : voir --color-accent-text. */
+  color: var(--color-accent-text);
+}
+
+.section__title {
+  margin-bottom: var(--space-4);
+}
+
+.section__subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+}
+
+/* --- Grilles reutilisables --- */
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.grid--2 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid--3 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+
+@media (min-width: 640px) {
+  .grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 900px) {
+  .grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* --- Bloc a deux colonnes (texte + visuel), alternable --- */
+.split {
+  display: grid;
+  gap: var(--space-10);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .split {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-16);
+  }
+
+  /* Inverse l'ordre visuel sans casser l'ordre du DOM */
+  .split--reverse > :first-child { order: 2; }
+  .split--reverse > :last-child { order: 1; }
+}
+
+.stack > * + * {
+  margin-top: var(--space-4);
+}

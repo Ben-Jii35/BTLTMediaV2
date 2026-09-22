@@ -1,0 +1,176 @@
+/* =============================================================
+   Pages legales (mentions, confidentialite, CGV)
+
+   Un seul fichier pour les trois pages : elles partagent la meme
+   mise en page en colonne etroite, pensee pour de la lecture longue
+   plutot que pour de la mise en avant.
+   ============================================================= */
+
+/* --- En-tete simplifie ---
+   Sur ces pages, le menu de la landing n'a pas de sens : ses ancres
+   pointeraient vers une autre page. Un simple retour suffit. */
+.header__back {
+  flex: none;
+}
+
+/* --- Titre de page --- */
+.legal__header {
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.legal__eyebrow {
+  display: block;
+  margin-bottom: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-accent-text);
+}
+
+.legal__updated {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* --- Avertissement « modele a completer » ---
+   Volontairement voyant : ces pages ne doivent pas partir en ligne
+   telles quelles. A supprimer une fois le document complete. */
+.legal-warning {
+  margin-bottom: var(--space-8);
+  padding: var(--space-5);
+  background-color: var(--color-primary-soft);
+  border: 1px solid var(--color-primary);
+  border-left-width: 4px;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+}
+
+.legal-warning__title {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+}
+
+.legal-warning p + p {
+  margin-top: var(--space-3);
+}
+
+/* --- Corps du document --- */
+.legal {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+}
+
+.legal > * + * {
+  margin-top: var(--space-4);
+}
+
+.legal h2 {
+  margin-top: var(--space-10);
+  font-size: var(--text-2xl);
+}
+
+.legal h3 {
+  margin-top: var(--space-6);
+  font-size: var(--text-lg);
+}
+
+.legal h2 + *,
+.legal h3 + * {
+  margin-top: var(--space-3);
+}
+
+.legal ul,
+.legal ol {
+  padding-left: var(--space-5);
+  list-style: disc;
+}
+
+.legal ol {
+  list-style: decimal;
+}
+
+.legal li + li {
+  margin-top: var(--space-2);
+}
+
+.legal strong {
+  color: var(--color-text);
+}
+
+.legal a {
+  color: var(--color-accent-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal a:hover {
+  color: var(--color-accent-text-strong);
+}
+
+/* --- Champs a completer ---
+   Tout ce que seul l'editeur du site peut renseigner. Le rendu est
+   volontairement criard : impossible de le laisser passer. */
+.legal .tbd {
+  padding: 0.05em 0.4em;
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  background-color: var(--color-primary-soft);
+  border: 1px dashed var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+
+/* --- Tableau (durees de conservation) --- */
+.legal-table {
+  width: 100%;
+  margin-top: var(--space-4);
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.legal-table th,
+.legal-table td {
+  padding: var(--space-3);
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid var(--color-border);
+}
+
+.legal-table th {
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  background-color: var(--color-surface-alt);
+}
+
+/* --- Sommaire --- */
+.legal-toc {
+  padding: var(--space-5);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.legal-toc__title {
+  margin-bottom: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.legal-toc ol {
+  columns: 2;
+  column-gap: var(--space-6);
+  padding-left: var(--space-5);
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 560px) {
+  .legal-toc ol { columns: 1; }
+}

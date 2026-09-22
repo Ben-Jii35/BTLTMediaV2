@@ -1,0 +1,132 @@
+/* =============================================================
+   Composant : bouton
+   Variantes : --primary (accent), --secondary (fonce), --ghost (discret)
+   Tailles   : --lg
+   Etats     : hover, focus-visible, active, disabled
+   ============================================================= */
+
+.btn {
+  --btn-bg: transparent;
+  --btn-bg-hover: transparent;
+  --btn-color: var(--color-text);
+  --btn-border: transparent;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  min-height: 2.75rem;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  border: 1px solid var(--btn-border);
+  border-radius: var(--radius-md);
+  background-color: var(--btn-bg);
+  color: var(--btn-color);
+  cursor: pointer;
+  transition:
+    background-color var(--duration-base) var(--ease),
+    border-color var(--duration-base) var(--ease),
+    color var(--duration-base) var(--ease),
+    transform var(--duration-fast) var(--ease);
+}
+
+.btn:hover:not(:disabled):not([aria-disabled="true"]) {
+  background-color: var(--btn-bg-hover);
+}
+
+.btn:active:not(:disabled):not([aria-disabled="true"]) {
+  transform: translateY(1px);
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn__icon {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+}
+
+/* --- Variantes --- */
+.btn--primary {
+  /* Texte fonce sur l'accent : contraste largement superieur a AA */
+  --btn-bg: var(--color-primary);
+  --btn-bg-hover: var(--color-primary-strong);
+  /* Toujours sombre : du blanc sur l'orange ne ferait que 2:1. */
+  --btn-color: var(--color-on-primary);
+  --btn-border: var(--color-primary);
+  box-shadow: var(--shadow-xs);
+}
+
+.btn--primary:hover:not(:disabled) {
+  border-color: var(--color-primary-strong);
+}
+
+.btn--secondary {
+  --btn-bg: var(--color-secondary);
+  --btn-bg-hover: var(--color-secondary-strong);
+  --btn-color: var(--color-text-inverse);
+  --btn-border: var(--color-secondary);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  border-color: var(--color-secondary-strong);
+}
+
+.btn--outline {
+  --btn-bg: var(--color-surface);
+  --btn-bg-hover: var(--color-surface-alt);
+  --btn-color: var(--color-text);
+  --btn-border: var(--color-border);
+}
+
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-bg-hover: var(--color-surface-alt);
+  --btn-color: var(--color-text);
+}
+
+/* --- Tailles --- */
+.btn--lg {
+  padding: var(--space-4) var(--space-6);
+  min-height: 3.125rem;
+  font-size: var(--text-base);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+/* --- Groupe de boutons --- */
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+@media (max-width: 480px) {
+  .btn-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Variante discrete pour les fonds fonces (annuler, action secondaire) */
+.btn--quiet {
+  --btn-bg: transparent;
+  --btn-bg-hover: rgba(255, 255, 255, 0.12);
+  --btn-color: var(--color-text-inverse);
+  --btn-border: rgba(255, 255, 255, 0.28);
+}
+
+.btn--quiet:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.45);
+}

@@ -1,0 +1,225 @@
+/* =============================================================
+   Section : header / navigation
+   ============================================================= */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background-color: var(--color-header-bg);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: var(--header-height);
+}
+
+/* Le logo ne doit jamais etre comprime par la navigation */
+.header__inner > .brand {
+  flex: none;
+}
+
+/* --- Logo temporaire --- */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text);
+}
+
+.brand__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  background-color: var(--color-primary);
+  border-radius: var(--radius-md);
+  flex: none;
+}
+
+.brand__name {
+  font-size: var(--text-lg);
+  white-space: nowrap;
+}
+
+.brand--footer .brand__name {
+  color: var(--color-text-inverse);
+}
+
+/* --- Navigation desktop --- */
+.nav {
+  display: none;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.nav__link {
+  display: inline-block;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+  border-radius: var(--radius-sm);
+  transition: color var(--duration-base) var(--ease), background-color var(--duration-base) var(--ease);
+}
+
+.nav__link:hover {
+  color: var(--color-text);
+  background-color: var(--color-surface-alt);
+}
+
+.header__actions {
+  display: none;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* --- Bouton du menu mobile --- */
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  transition: background-color var(--duration-base) var(--ease);
+}
+
+.nav-toggle:hover {
+  background-color: var(--color-surface-alt);
+}
+
+.nav-toggle__bars,
+.nav-toggle__bars::before,
+.nav-toggle__bars::after {
+  display: block;
+  width: 1.125rem;
+  height: 2px;
+  border-radius: 2px;
+  background-color: currentColor;
+  transition: transform var(--duration-base) var(--ease), opacity var(--duration-base) var(--ease);
+}
+
+.nav-toggle__bars {
+  position: relative;
+}
+
+.nav-toggle__bars::before,
+.nav-toggle__bars::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.nav-toggle__bars::before { top: -6px; }
+.nav-toggle__bars::after { top: 6px; }
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars {
+  background-color: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bars::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* --- Panneau mobile --- */
+.mobile-menu {
+  display: none;
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.mobile-menu.is-open {
+  display: block;
+}
+
+.mobile-menu__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding-block: var(--space-6);
+}
+
+.mobile-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.mobile-menu__link {
+  display: block;
+  padding: var(--space-3);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+  transition: background-color var(--duration-base) var(--ease);
+}
+
+.mobile-menu__link:hover {
+  background-color: var(--color-surface-alt);
+}
+
+.mobile-menu__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+/* --- Bascule desktop --- */
+@media (min-width: 900px) {
+  .nav { display: block; }
+  .header__actions { display: flex; }
+  .nav-toggle { display: none; }
+  .mobile-menu,
+  .mobile-menu.is-open { display: none; }
+}
+
+/* --- Logo de la marque ---
+   Les fichiers sont recadres au plus pres de la marque : dans le
+   fichier d'origine, elle n'occupait que 15 % de la surface, le reste
+   etant du vide orange. A taille d'affichage egale, le mot est donc
+   nettement plus grand. */
+.brand__logo {
+  width: 2.75rem;
+  height: 2.75rem;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  flex: none;
+}
+
+/* Version du pied de page : logo blanc sur fond fonce, pose
+   directement sur le fond, sans cadre ni arriere-plan. Nettement plus
+   grand qu'en en-tete : c'est la derniere chose que le visiteur voit,
+   et le pied de page n'a plus de plan du site a faire tenir a cote. */
+.brand__logo--wide {
+  width: auto;
+  height: 4.5rem;
+  max-width: 18rem;
+  object-fit: contain;
+  border-radius: 0;
+}

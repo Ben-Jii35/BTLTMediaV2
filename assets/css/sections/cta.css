@@ -1,0 +1,99 @@
+/* =============================================================
+   Section : appel a l'action
+   ============================================================= */
+
+.cta__panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  padding: clamp(2.5rem, 5vw, 4rem) var(--container-padding);
+  text-align: center;
+  background-color: var(--color-secondary);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+/* Accent primaire maitrise : fine barre superieure */
+.cta__panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: var(--color-primary);
+}
+
+.cta__title {
+  max-width: 28ch;
+  color: var(--color-text-inverse);
+}
+
+.cta__text {
+  max-width: 52ch;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.cta__actions {
+  justify-content: center;
+  margin-top: var(--space-2);
+}
+
+.cta__note {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Le focus doit rester visible sur fond fonce */
+.cta__panel :where(a, button):focus-visible {
+  outline-color: var(--color-primary);
+}
+
+/* --- Formulaire de contact deplie dans l'encart --- */
+.cta__form-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: var(--space-2);
+}
+
+/* Le formulaire s'ouvre en place : leger fondu, sans deplacement brutal */
+.cta__form-wrapper[hidden] {
+  display: none;
+}
+
+.js .cta__form-wrapper:not([hidden]) {
+  animation: cta-form-open 220ms var(--ease);
+}
+
+@keyframes cta-form-open {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Les champs restent lisibles : on annule l'alignement centre de l'encart */
+.cta__panel .form {
+  text-align: left;
+}
+
+/* Bloc "boutons + mention" de l'encart.
+   Masque par defaut : sans JavaScript, le formulaire est affiche
+   directement et aucun declencheur inerte n'est expose au clavier.
+   La regle [hidden] doit rester APRES .js pour pouvoir l'emporter. */
+.cta__intro {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.js .cta__intro {
+  display: flex;
+}
+
+.js .cta__intro[hidden] {
+  display: none;
+}

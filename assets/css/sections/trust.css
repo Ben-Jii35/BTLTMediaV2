@@ -1,0 +1,231 @@
+/* =============================================================
+   Section : preuve / confiance (logos clients)
+
+   Six logos ne tiennent sur une seule ligne qu'a partir de 900px.
+   En dessous, une grille les empilerait sur deux ou trois rangees,
+   ce qui mange tout l'ecran d'un telephone pour une information
+   secondaire. Le bandeau defile donc en continu sur mobile, et
+   redevient une rangee fixe sur ordinateur.
+   ============================================================= */
+
+.trust__intro {
+  margin-bottom: var(--space-8);
+  text-align: center;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* --- Bandeau --- */
+
+.trust__band {
+  /* Repli sans JavaScript : la rangee reste parcourable au doigt.
+     Le defilement automatique n'est branche que par [data-marquee-ready]. */
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  /* Les logos s'effacent sur les bords au lieu d'etre coupes net. */
+  -webkit-mask-image: linear-gradient(
+    to right, transparent, #000 var(--space-8),
+    #000 calc(100% - var(--space-8)), transparent);
+          mask-image: linear-gradient(
+    to right, transparent, #000 var(--space-8),
+    #000 calc(100% - var(--space-8)), transparent);
+}
+
+.trust__band::-webkit-scrollbar {
+  display: none;
+}
+
+.trust__logos {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  width: max-content;
+}
+
+.trust__logo {
+  flex: none;
+}
+
+/* Les logos sont cales sur leur hauteur, jamais sur leur largeur :
+   c'est ce qui les fait paraitre de meme importance malgre des
+   proportions tres differentes. */
+.trust__logo img {
+  display: block;
+  height: 2.25rem;
+  width: auto;
+}
+
+/* --- Defilement continu ---
+   Le JavaScript recopie la liste une fois, puis pose
+   [data-marquee-ready]. La piste contient alors deux exemplaires :
+   la decaler d'un exemplaire ramene exactement au point de depart,
+   d'ou la boucle sans saut. Le decalage vaut la moitie de la piste,
+   plus la moitie d'un ecart (le gap surnumeraire entre les deux
+   copies). Sans JS, rien ne demarre : la liste ne serait pas
+   dupliquee et le raccord serait visible. */
+
+.trust__band[data-marquee-ready] {
+  overflow: hidden;
+}
+
+.trust__band[data-marquee-ready] .trust__logos {
+  animation: trust-defilement 32s linear infinite;
+}
+
+/* Laisse le temps de lire un logo au survol, et ne fait pas defiler
+   le contenu sous un utilisateur qui navigue au clavier. */
+.trust__band[data-marquee-ready]:hover .trust__logos,
+.trust__band[data-marquee-ready]:focus-within .trust__logos {
+  animation-play-state: paused;
+}
+
+@keyframes trust-defilement {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-50% - var(--space-4) / 2)); }
+}
+
+/* --- Ordinateur : rangee fixe --- */
+
+@media (min-width: 900px) {
+  .trust__band,
+  .trust__band[data-marquee-ready] {
+    overflow: visible;
+    -webkit-mask-image: none;
+            mask-image: none;
+  }
+
+  .trust__band[data-marquee-ready] .trust__logos {
+    animation: none;
+  }
+
+  .trust__logos {
+    width: auto;
+    justify-content: space-between;
+    gap: var(--space-6);
+  }
+
+  /* Six logos cote a cote : on les reduit un peu pour qu'ils tiennent
+     sans se serrer des 900 px. */
+  .trust__logo img {
+    height: 2rem;
+  }
+
+  /* La copie ne sert qu'au defilement. */
+  .trust__logos [data-marquee-clone] {
+    display: none;
+  }
+}
+
+@media (min-width: 1100px) {
+  .trust__logo img {
+    height: 2.25rem;
+  }
+}
+
+/* --- Mouvement reduit ---
+   Un bandeau qui bouge en permanence est exactement ce que ce
+   reglage demande d'eviter. On revient a une rangee que l'on fait
+   glisser soi-meme, et la copie devient inutile. */
+
+@media (prefers-reduced-motion: reduce) {
+  .trust__band[data-marquee-ready] {
+    overflow-x: auto;
+  }
+
+  .trust__band[data-marquee-ready] .trust__logos {
+    animation: none;
+  }
+
+  .trust__logos [data-marquee-clone] {
+    display: none;
+  }
+}
+
+/* =============================================================
+   Avis clients
+   Trois temoignages sous le bandeau de logos, dans la meme section :
+   les logos disent « qui », les avis disent « ce qu'ils en ont
+   pense ». Les separer en deux sections casserait le lien.
+   ============================================================= */
+
+.reviews {
+  display: grid;
+  gap: var(--space-5);
+}
+
+/* Le bandeau de logos et les avis sont deux blocs distincts : sans
+   cet ecart, les cartes paraissaient accrochees a la rangee du haut.
+   Le selecteur porte le nom de balise a dessein : le reset applique
+   `ul[class] { margin: 0 }`, plus specifique qu'une simple classe, et
+   ecraserait cette marge. */
+ul.reviews {
+  margin-top: var(--space-16);
+}
+
+@media (min-width: 720px) {
+  .reviews { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  height: 100%;
+  margin: 0;
+  padding: var(--space-6);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+/* --- Note en etoiles ---
+   Les <svg> sont decoratifs : la note est portee par le role="img"
+   et son aria-label sur le conteneur, qui annonce « 4 etoiles sur 5 »
+   d'un seul tenant au lieu d'egrener cinq icones. */
+.rating {
+  display: flex;
+  gap: 0.125rem;
+  color: var(--color-primary);
+}
+
+.rating__star {
+  width: 1rem;
+  height: 1rem;
+}
+
+.rating__star--vide {
+  color: var(--color-border-strong);
+}
+
+.review__quote {
+  flex: 1;
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+}
+
+/* --- Signature ---
+   Detachee du temoignage par un filet et de l'air : sans cela le nom
+   se lisait comme la fin de la phrase. */
+.review__author {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-xs);
+}
+
+.review__name {
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.review__company {
+  color: var(--color-text-muted);
+}
