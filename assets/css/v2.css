@@ -136,21 +136,55 @@ ul.reviews { margin-top: 3rem; gap: 0; border-top: 1px solid var(--color-border)
 .faq__footer { grid-column: 1; grid-row: 2; margin-top: 1.8rem; text-align: left; }
 #faq .accordion { grid-column: 2; grid-row: 1 / 3; }
 
-/* Contact : l'orange de la marque devient une grande surface d'appel. */
+/* Contact : un encart partagé entre l'introduction et l'espace de saisie. */
 #cta { padding-top: 0; background: var(--color-surface); }
-.cta__panel { padding: clamp(2.5rem, 6vw, 5rem); background: var(--color-primary); border-radius: 3px; gap: 1.5rem; }
+.cta__panel { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.3fr); align-items: stretch; gap: 0; padding: 0; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; text-align: left; }
 .cta__panel::before { content: none; }
-.cta__title { color: var(--color-secondary); font-size: clamp(2.5rem, 4.5vw, 4.25rem); letter-spacing: -.055em; line-height: 1.1; }
-.cta__text { color: var(--color-secondary); font-size: 1rem; }
-.cta__panel .btn--primary { background: var(--color-secondary); border-color: var(--color-secondary); color: white; }
-.cta__panel .btn--primary:hover { background: var(--color-secondary-strong); }
-.cta__panel :where(a, button):focus-visible { outline-color: var(--color-secondary); }
-.cta__panel .form { background: var(--color-surface); padding: clamp(1.25rem, 4vw, 2.5rem); border-radius: 10px; color: var(--color-text); }
-.cta__panel .field__label, .cta__panel .checkbox { color: var(--color-text); }
+.cta__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; padding: clamp(2rem, 4vw, 3.5rem); background: var(--color-secondary); }
+.cta__copy .section__eyebrow { margin: 0; }
+.cta__title { max-width: 12ch; color: var(--color-text-inverse); font-size: clamp(2.5rem, 4vw, 3.5rem); letter-spacing: -.055em; line-height: 1.08; }
+.cta__title span { color: var(--color-primary); }
+.cta__text { max-width: 32ch; color: rgba(255,255,255,.82); font-size: .95rem; line-height: 1.85; }
+.cta__signature { width: 100%; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.2); color: white; font-size: 1rem; font-weight: 600; }
+.cta__signature span { display: block; margin-top: .3rem; color: rgba(255,255,255,.65); font-size: .75rem; font-weight: 400; }
+.cta__intro { align-items: flex-start; justify-content: center; gap: 1.25rem; padding: clamp(2rem, 4vw, 3.5rem); }
+.cta__intro-title { max-width: 20ch; color: var(--color-secondary); font-size: clamp(1.6rem, 2.5vw, 2.1rem); letter-spacing: -.04em; line-height: 1.2; }
+.cta__intro-text { max-width: 38ch; color: var(--color-text-muted); font-size: .95rem; line-height: 1.8; }
+.cta__actions { justify-content: flex-start; margin-top: .5rem; }
+.cta__form-wrapper { min-width: 0; margin: 0; padding: clamp(1.5rem, 3vw, 3rem); }
+.cta__panel .form { max-width: none; min-width: 0; padding: 0; gap: 1.5rem; background: var(--color-surface); color: var(--color-text); }
+.form__group { display: flex; flex-direction: column; gap: 1.25rem; min-width: 0; margin: 0; padding: 0; border: 0; }
+.form__legend { float: left; width: 100%; padding: 0; color: var(--color-secondary); font-size: 1.15rem; font-weight: 600; letter-spacing: -.025em; }
+.form__group + .form__group { padding-top: 1.75rem; border-top: 1px solid var(--color-border); }
+.form__group-note { margin-top: -.75rem; color: var(--color-text-muted); font-size: .75rem; }
+.cta__panel .form__row { gap: 1.25rem; }
+.cta__panel .field { min-width: 0; gap: .5rem; }
+.cta__panel .field__label { color: var(--color-secondary); font-size: .8125rem; font-weight: 600; }
+.cta__panel .field__optional { display: block; font-size: .75rem; }
 .cta__panel .field__optional, .cta__panel .field__hint, .cta__panel .form__note { color: var(--color-text-muted); }
-.cta__panel .form__status { color: var(--color-secondary); }
-.cta__panel .btn--quiet { color: var(--color-secondary); }
-.field__control { border-radius: 5px; }
+.cta__panel .field__hint { font-size: .75rem; }
+.cta__panel .field__control { min-height: 3rem; padding: .75rem .9rem; border: 1px solid var(--color-border-strong); border-radius: var(--radius-md); background: var(--color-bg); }
+.cta__panel .field__control::placeholder { color: var(--color-text-muted); opacity: .8; }
+.cta__panel .field__control:hover { border-color: var(--color-secondary); }
+.cta__panel .field__control:focus-visible { border-color: var(--color-secondary); outline: 2px solid var(--color-secondary); outline-offset: 2px; background: white; }
+.cta__panel textarea.field__control { min-height: 9rem; }
+.cta__panel .checkbox { color: var(--color-text-muted); font-size: .8125rem; line-height: 1.7; }
+.cta__panel .checkbox__input { accent-color: var(--color-secondary); }
+.cta__panel .form__actions { gap: .75rem; }
+.cta__panel .btn--primary { --btn-bg: var(--color-primary); --btn-bg-hover: var(--color-primary-strong); --btn-color: var(--color-on-primary); --btn-border: var(--color-primary); }
+.cta__panel .btn--quiet { --btn-bg: transparent; --btn-bg-hover: var(--color-surface-alt); --btn-color: var(--color-secondary); --btn-border: var(--color-border); }
+.cta__panel .btn--quiet:hover:not(:disabled) { border-color: var(--color-border-strong); }
+.cta__panel :where(a, button, input):focus-visible { outline-color: var(--color-secondary); }
+.cta__panel .form__status { color: var(--color-secondary); padding: 1rem; border-left: 3px solid var(--color-primary); background: var(--color-bg); line-height: 1.7; }
+.cta__panel .form__note { padding-top: 1.25rem; border-top: 1px solid var(--color-border); font-size: .75rem; line-height: 1.7; }
+.form__note a { display: inline-block; margin-top: .35rem; color: var(--color-secondary); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 999px) {
+  .cta__panel { grid-template-columns: minmax(0, 1fr); }
+  .cta__copy { gap: 1.25rem; }
+  .cta__title { max-width: 18ch; }
+  .cta__text { max-width: 52ch; }
+  .cta__signature { margin-top: .5rem; }
+}
 .footer { padding-top: 3.5rem; }
 .footer__top { padding-bottom: 3rem; }
 .footer .brand__logo--wide { height: 5.5rem; width: auto; border-radius: 0; }
@@ -225,9 +259,9 @@ ul.reviews { margin-top: 3rem; gap: 0; border-top: 1px solid var(--color-border)
   #prestations .section__title { margin-bottom: 1.25rem; }
   #prestations .card { padding: 2rem .25rem; }
   .service-number, .process__number { margin-bottom: 1rem; }
-  .cta__panel { padding-inline: 1.25rem; }
+  .cta__copy, .cta__intro, .cta__form-wrapper { padding: 1.5rem; }
   .cta__title { font-size: 2.5rem; }
-  .cta__panel .form { padding: 1.25rem; }
+  .cta__panel .form { padding: 0; }
   .header__back { padding: .65rem .9rem; font-size: .75rem; }
   .header:has(.header__back) .brand__name { display: none; }
   .legal-table th, .legal-table td { padding: .5rem; font-size: .75rem; }
