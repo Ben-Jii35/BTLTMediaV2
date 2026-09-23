@@ -614,13 +614,19 @@
       <div class="container">
         <div class="cta__panel" data-reveal>
 
-          <h2 class="cta__title" id="cta-titre">Parlons de votre projet</h2>
-          <p class="cta__text">
-            Parlez-nous de votre activité et de vos besoins. Nous échangerons
-            avec vous pour définir un accompagnement adapté.
-          </p>
+          <div class="cta__copy">
+            <span class="section__eyebrow">Contact</span>
+            <h2 class="cta__title" id="cta-titre">Parlons de votre <span>projet.</span></h2>
+            <p class="cta__text">
+              Parlez-nous de votre activité et de vos besoins. Nous échangerons
+              avec vous pour définir un accompagnement adapté.
+            </p>
+            <p class="cta__signature">BTLTMedia<span>Agence de communication et de marketing</span></p>
+          </div>
 
           <div class="cta__intro" data-contact-intro>
+            <h3 class="cta__intro-title">Tout commence par un échange.</h3>
+            <p class="cta__intro-text">Une idée précise ou un besoin à clarifier ? Quelques lignes suffisent pour nous en parler.</p>
             <div class="btn-group cta__actions">
               <button
                 class="btn btn--primary btn--lg"
@@ -635,8 +641,10 @@
           </div>
 
           <div class="cta__form-wrapper" id="formulaire-contact" data-contact-panel>
-            <form class="form" data-contact-form>
-
+            <form class="form" data-contact-form aria-label="Votre demande">
+              <fieldset class="form__group">
+                <legend class="form__legend">Vos coordonnées</legend>
+                <p class="form__group-note">Les champs facultatifs sont indiqués.</p>
               <div class="form__row form__row--2">
                 <div class="field">
                   <label class="field__label" for="contact-nom">Nom ou nom de société</label>
@@ -684,6 +692,9 @@
                 </div>
               </div>
 
+              </fieldset>
+              <fieldset class="form__group">
+                <legend class="form__legend">Votre projet</legend>
               <div class="field">
                 <label class="field__label" for="contact-objet">Objet</label>
                 <input
@@ -708,7 +719,8 @@
                 ></textarea>
               </div>
 
-              <div class="field">
+              </fieldset>
+              <div class="field form__consent">
                 <label class="checkbox" for="contact-consentement">
                   <input class="checkbox__input" type="checkbox" id="contact-consentement" name="consentement" required>
                   <span>
@@ -727,6 +739,7 @@
               <p class="form__note">
                 Vos informations ne servent qu'à répondre à votre demande et ne
                 sont transmises à personne.
+                <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
               </p>
 
             </form>
@@ -776,7 +789,6 @@
         <ul class="footer__legal">
           <li><a class="footer__link" href="mentions-legales.html">Mentions légales</a></li>
           <li><a class="footer__link" href="politique-de-confidentialite.html">Politique de confidentialité</a></li>
-          <li><a class="footer__link" href="conditions-generales-de-vente.html">Conditions générales de vente</a></li>
         </ul>
       </div>
 
