@@ -14,11 +14,20 @@
 
 body { -webkit-font-smoothing: antialiased; }
 h1, h2, h3 { text-wrap: balance; }
-.header { background: var(--color-surface); backdrop-filter: none; }
-.brand__logo { border-radius: var(--radius-md); width: 2.8rem; height: 2.8rem; }
-.brand__name { font-size: 1.2rem; letter-spacing: -.045em; }
+.header { background: var(--color-primary); border-bottom-color: rgba(15,61,94,.15); backdrop-filter: none; }
+.header .brand { gap: .2rem; color: var(--color-secondary); }
+.header .brand__logo { width: 4.5rem; height: 2.5rem; border-radius: 0; object-fit: contain; }
+.brand__name { font-size: 1.5rem; font-weight: 750; font-style: italic; letter-spacing: -.055em; }
 .nav__list { gap: 1.5rem; }
-.nav__link { font-weight: 600; }
+.nav__link { font-weight: 600; color: var(--color-secondary); }
+.header .nav__link:hover, .header .mobile-menu__link:hover { color: var(--color-secondary-strong); background: rgba(15,61,94,.08); }
+.header .btn { --btn-bg: var(--color-secondary); --btn-bg-hover: var(--color-secondary-strong); --btn-color: var(--color-text-inverse); --btn-border: var(--color-secondary); }
+.header .btn:hover:not(:disabled) { border-color: var(--color-secondary-strong); }
+.header .nav-toggle { background: transparent; color: var(--color-secondary); border-color: rgba(15,61,94,.25); }
+.header .nav-toggle:hover { background: rgba(15,61,94,.08); }
+.header .mobile-menu { background: var(--color-primary); border-color: rgba(15,61,94,.15); }
+.header .mobile-menu__link { color: var(--color-secondary); }
+.header .mobile-menu__actions { border-color: rgba(15,61,94,.15); }
 .btn { border-radius: var(--radius-md); padding: .85rem 1.45rem; }
 .btn--lg { padding: 1rem 1.65rem; }
 .btn--primary { box-shadow: none; }
@@ -50,7 +59,6 @@ h1, h2, h3 { text-wrap: balance; }
 .hero-art__viewfinder i:nth-child(2) { right: 0; top: 0; border-width: 1px 1px 0 0; }
 .hero-art__viewfinder i:nth-child(3) { right: 0; bottom: 0; border-width: 0 1px 1px 0; }
 .hero-art__viewfinder i:nth-child(4) { left: 0; bottom: 0; border-width: 0 0 1px 1px; }
-.hero-art__asterisk { position: absolute; z-index: 4; right: -4px; top: 272px; color: var(--color-primary); font-size: 115px; line-height: 1; transform: rotate(12deg); }
 .hero-art__timeline { position: absolute; bottom: 0; left: 22%; right: 22%; display: flex; align-items: center; justify-content: center; gap: 7px; height: 40px; }
 .hero-art__timeline i { width: 3px; height: 9px; background: var(--color-primary); border-radius: 3px; }
 .hero-art__timeline i:nth-child(3n) { height: 30px; }
@@ -208,7 +216,6 @@ ul.reviews { margin-top: 3rem; gap: 0; border-top: 1px solid var(--color-border)
   .hero-art { height: 380px; }
   .hero-art__sun { width: 220px; height: 220px; }
   .hero-art__viewfinder { display: none; }
-  .hero-art__asterisk { top: 245px; font-size: 90px; }
   #faq > .container { column-gap: 3rem; }
 }
 @media (max-width: 899px) {
@@ -220,7 +227,6 @@ ul.reviews { margin-top: 3rem; gap: 0; border-top: 1px solid var(--color-border)
   .hero-art { width: min(100%, 470px); justify-self: center; height: 350px; }
   .hero-art__sun { width: 260px; height: 260px; top: 0; }
   .hero-art__frame { top: 45px; }
-  .hero-art__asterisk { top: 230px; right: 0; }
   .hero-art__orbit { height: 310px; }
   .hero-art__timeline { display: none; }
   .video-frame { aspect-ratio: 16 / 9; }
@@ -252,7 +258,6 @@ ul.reviews { margin-top: 3rem; gap: 0; border-top: 1px solid var(--color-border)
   .hero-art__sun { width: 220px; height: 220px; }
   .hero-art__frame { left: 6px; right: 15px; }
   .hero-art__orbit { height: 260px; right: 0; }
-  .hero-art__asterisk { top: 210px; font-size: 75px; }
   .hero-art__perforations { height: 20px; }
   .split__title { font-size: 2rem; }
   #prestations .section__header { display: block; }
@@ -263,7 +268,6 @@ ul.reviews { margin-top: 3rem; gap: 0; border-top: 1px solid var(--color-border)
   .cta__title { font-size: 2.5rem; }
   .cta__panel .form { padding: 0; }
   .header__back { padding: .65rem .9rem; font-size: .75rem; }
-  .header:has(.header__back) .brand__name { display: none; }
   .legal-table th, .legal-table td { padding: .5rem; font-size: .75rem; }
 }
 @media (prefers-reduced-motion: reduce) {
