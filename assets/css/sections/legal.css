@@ -116,7 +116,8 @@
 /* --- Champs a completer ---
    Tout ce que seul l'editeur du site peut renseigner. Le rendu est
    volontairement criard : impossible de le laisser passer. */
-.legal .tbd {
+.legal .tbd,
+.legal-warning .tbd {
   padding: 0.05em 0.4em;
   font-weight: var(--weight-semibold);
   color: var(--color-text);
