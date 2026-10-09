@@ -98,7 +98,23 @@
     var intro = document.querySelector('[data-contact-intro]');
     var status = form.querySelector('[data-contact-status]');
     var cancel = form.querySelector('[data-contact-cancel]');
+    var submitButton = form.querySelector('button[type="submit"]');
     var lastTrigger = null;
+
+    var localPreview = window.location.protocol === 'file:' ||
+      /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname);
+    if (localPreview) {
+      var captcha = form.querySelector('.h-captcha');
+      var localNote = form.querySelector('[data-local-captcha-note]');
+      if (captcha) captcha.hidden = true;
+      if (localNote) localNote.hidden = false;
+      if (submitButton) submitButton.disabled = true;
+    } else {
+      var captchaScript = document.createElement('script');
+      captchaScript.src = 'https://web3forms.com/client/script.js';
+      captchaScript.async = true;
+      document.head.appendChild(captchaScript);
+    }
 
     function setOpen(open) {
       wrapper.hidden = !open;
@@ -116,7 +132,7 @@
         lastTrigger = trigger;
         setOpen(true);
 
-        var first = form.querySelector('input, select, textarea');
+        var first = form.querySelector('input:not([type="hidden"]):not([type="checkbox"]), select, textarea');
         if (first) first.focus();
       });
     });
@@ -146,15 +162,41 @@
     });
 
     form.addEventListener('submit', function (event) {
-      // MAQUETTE : aucun envoi n'est configure.
-      // Brancher ici le service reel (action du <form> vers votre
-      // back-end, un service de formulaire tiers, ou un appel fetch).
       event.preventDefault();
+      if (localPreview) return;
+      if (submitButton && submitButton.disabled) return;
 
-      if (status) {
-        status.textContent =
-          'Maquette : l’envoi n’est pas encore branché. Les informations saisies ne sont transmises nulle part.';
+      var captchaResponse = form.querySelector('textarea[name="h-captcha-response"]');
+      if (!captchaResponse || !captchaResponse.value) {
+        if (status) status.textContent = 'Veuillez valider le contrôle anti-robot avant d’envoyer votre demande.';
+        return;
       }
+
+      var formData = new FormData(form);
+      // La redirection sert uniquement au formulaire HTML sans JavaScript.
+      formData.delete('redirect');
+      if (status) status.textContent = 'Envoi de votre demande…';
+      if (submitButton) submitButton.disabled = true;
+      form.setAttribute('aria-busy', 'true');
+
+      fetch(form.action, { method: 'POST', body: formData })
+        .then(function (response) {
+          return response.json().then(function (result) {
+            if (!response.ok || !result.success) throw new Error('Échec de l’envoi');
+          });
+        })
+        .then(function () {
+          form.reset();
+          if (status) status.textContent = 'Votre demande a bien été envoyée. Nous vous répondrons dès que possible.';
+        })
+        .catch(function () {
+          if (status) status.textContent = 'L’envoi a échoué. Réessayez ou écrivez-nous à contact@btlt-media.fr.';
+        })
+        .finally(function () {
+          if (window.hcaptcha && typeof window.hcaptcha.reset === 'function') window.hcaptcha.reset();
+          if (submitButton) submitButton.disabled = false;
+          form.removeAttribute('aria-busy');
+        });
     });
   }
 
@@ -208,7 +250,6 @@
       observer.observe(el);
     });
   }
-
 
   /* -----------------------------------------------------------
      5. Bandeau de logos qui defile
