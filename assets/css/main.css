@@ -13,9 +13,7 @@
 
 /* Composants reutilisables */
 @import url("components/button.css");
-@import url("components/badge.css");
 @import url("components/card.css");
-@import url("components/media.css");
 @import url("components/accordion.css");
 @import url("components/form.css");
 @import url("components/video.css");
@@ -24,8 +22,6 @@
 @import url("sections/header.css");
 @import url("sections/hero.css");
 @import url("sections/trust.css");
-@import url("sections/content.css");
-@import url("sections/process.css");
 @import url("sections/cta.css");
 @import url("sections/faq.css");
 @import url("sections/footer.css");
