@@ -6,7 +6,7 @@ Ouvrir `index.html` dans un navigateur permet de prévisualiser la page d’accu
 
 La palette, les liens, les images et les interactions de la version d’origine sont conservés. Les textes présentent désormais BTLTMedia comme une agence, sans promesse de réponse sous 24 heures. La section « Notre approche » présente les leviers contenu et publicité avec une hiérarchie commune aux autres sections, des soulignements dessinés et un emplacement vidéo au format 16:9. Le dossier parent reste inchangé.
 
-Le design V2 est défini dans `assets/css/v2.css`, chargé après les styles d'origine. Il comprend une accroche asymétrique, une composition de pellicule utilisant la photographie existante, une grille de services, un processus sur fond bleu et un encart contact en deux parties : introduction bleue et formulaire blanc. Les mises en page s'adaptent aux écrans mobiles et respectent la préférence de réduction des animations.
+Le design V2 est défini dans `assets/css/v2.css`, chargé après les styles d'origine. Il comprend une accroche asymétrique, une composition de pellicule utilisant la photographie existante, une grille de quatre services présentés comme les étapes d'accompagnement et un encart contact en deux parties : introduction bleue et formulaire blanc. Les mises en page s'adaptent aux écrans mobiles et respectent la préférence de réduction des animations.
 
 Couleurs principales : orange `#F2AC3C`, bleu `#0F3D5E`. Les tokens de couleurs d'origine restent dans `assets/css/base/tokens.css`.
 
